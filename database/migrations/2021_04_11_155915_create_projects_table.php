@@ -17,7 +17,6 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',100);
             $table->decimal('budget',12,2);
-            $table->date('start_date');
             $table->bigInteger('employee_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->timestamps();

@@ -13,13 +13,13 @@ class CreateEmployeesTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('employees_tasks', function (Blueprint $table) {
+        Schema::create('employee_tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('employee_id')->unsigned();
-            $table->bigInteger('project_id')->unsigned();
+            $table->bigInteger('task_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('employees');
-            $table->foreign('project_id')->references('id')->on('employees');
-            $table->unique(['employee_id','project_id'],'fp_unique');
+            $table->foreign('task_id')->references('id')->on('tasks');
+            $table->unique(['employee_id','task_id'],'fp_unique');
             $table->timestamps();
         });
     }
