@@ -7,6 +7,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\EmployeeTaskController;
+use App\Http\Controllers\DependentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,5 @@ Route::resource('tasks', TaskController::class);
 Route::get('projects/{projectId}/create-task', [TaskController::class, 'create']);
 Route::get('projects/{projectId}/task/{id}', [TaskController::class, 'show']);
 Route::get('projects/{projectId}/task/{id}/edit', [TaskController::class, 'edit']);
-Route::post('addEmployee', EmployeeTaskController::class);
+Route::resource('addEmployee', EmployeeTaskController::class);
+Route::resource('dependents', DependentController::class);

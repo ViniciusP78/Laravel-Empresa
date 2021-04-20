@@ -14,4 +14,8 @@ class Employee extends Model
     public function getDepartment() {
     	return $this->belongsTo('App\Models\Department','department_id')->first();
     }
+
+    public function getDependents() {
+        return $this->hasMany('App\Models\Dependent','employee_id')->get();
+    }
 }
